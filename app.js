@@ -4,7 +4,13 @@ var path  = require('path');
 var cred  = require('./lib/cred.js');
 var couch = require('./lib/couch.js');
 
-nconf.argv().env().file('config.json');
+nconf.file('dev', 'config-dev.json').argv().env().file('config.json');
+nconf.defaults({
+	"dbUrl": "http://localhost:5984",
+	"dbName": "database",
+	"s3BucketName": "bucket",
+	"awsCredentialsPath": ".aws/credentials"
+});
 
 var dbSettings   = couch(nconf.get('dbUrl'));
 var dbName       = nconf.get('dbName');
