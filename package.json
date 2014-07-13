@@ -1,6 +1,6 @@
 {
   "name": "couchdb-to-s3",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Copy your CouchDB database files to Amazon's S3 service.",
   "keywords": ["couch", "couchdb", "aws", "s3"],
   "license": "BSD-2-Clause",
