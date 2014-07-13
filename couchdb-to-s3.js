@@ -35,7 +35,7 @@ module.exports = function copy(db, aws, callback) {
 		var dbFilePath = path.join(dbDir, dbName + dbFileExt);
 		var s3FilePath = "/" + dbName + dbFileExt;
 
-		console.log("Backing up database ");
+		console.log("Copying database ");
 		console.log("  from " + dbFilePath);
 		console.log("  to   " + s3BucketName + s3FilePath);
 		console.log("  ...");
