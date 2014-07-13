@@ -1,5 +1,5 @@
 {
-  "name": "couch-to-s3",
+  "name": "couchdb-to-s3",
   "version": "0.2.0",
   "description": "Copy your CouchDB database files to Amazon's S3 service.",
   "keywords": ["couch", "couchdb", "aws", "s3"],
@@ -10,9 +10,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/exclsr/couch-to-s3.git"
+    "url": "https://github.com/exclsr/couchdb-to-s3.git"
   },
-  "main": "couch-to-s3.js",
+  "main": "couchdb-to-s3.js",
   "dependencies": {
     "knox": "~0.9.0",
     "nano": "~5.10.0"
