@@ -1,6 +1,0 @@
-{
-	"dbUrl": "http://localhost:5984",
-	"dbName": "database",
-	"s3BucketName": "bucket",
-	"awsCredentialsPath": ".aws/credentials"
-}
