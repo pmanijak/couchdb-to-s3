@@ -1,7 +1,13 @@
 {
   "name": "couch-to-s3",
   "version": "0.1.0",
+  "description": "Backup your CouchDB database files to Amazon's S3 service.",
+  "keywords": ["couch", "couchdb", "aws", "s3", "backup"],
   "license": "BSD-2-Clause",
+  "author": {
+    "name": "Phil Manijak",
+    "email": "npm@exclsr.com"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/exclsr/couch-to-s3.git"
