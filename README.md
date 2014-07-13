@@ -1,21 +1,25 @@
-couch-to-s3
+couchdb-to-s3
 ===========
 Copy your CouchDB database files to Amazon's S3 service.
 
-    npm install couch-to-s3
+    npm install couchdb-to-s3
 
 Usage
 -----------
 
-    var toS3 = require('couch-to-S3');
-    var options = {
-	    "dbUrl": "http://localhost:5984",
-	    "dbName": "the name of your database",
-	    "s3BucketName": "your S3 bucket",
-	    "awsCredentialsPath": ".aws/credentials"
+    var toS3 = require('couchdb-to-S3');
+    var db = {
+        url: "http://localhost:5984",
+        name: "the name of your database"
     };
 
-    toS3(options, function (err, body) {
+    var aws = {
+        accessKeyId: <aws_access_key_id>,
+        secretAccessKey: <aws_secret_access_key>,
+        bucket: "your S3 bucket",
+    };
+
+    toS3(db, aws, function (err, body) {
         // ...
     });
 
