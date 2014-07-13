@@ -1,20 +1,21 @@
 var knox  = require('knox');
 var path  = require('path');
-var cred  = require('./lib/cred.js');
 var couch = require('./lib/couch.js');
 
 module.exports = function copy(options, callback) {
 
-	options.dbUrl = options.dbUrl || "http://localhost:5984";
-	options.dbName = options.dbName || "database";
-	options.s3BucketName = options.s3BucketName || "bucket";
-	options.awsCredentialsPath = options.awsCredentialsPath || ".aws/credentials";
+	options.db = options.db || {};
+	options.db.url = options.db.url || "http://localhost:5984";
+	options.db.name = options.db.name || "database";
 
-	var dbSettings   = couch(options.dbUrl);
-	var dbName       = options.dbName;
+	options.aws = options.aws || {};
+	options.aws.accessKeyId = options.aws.accessKeyId || "no access key id";
+	options.aws.secretAccessKey = options.aws.secretAccessKey || "no secret access key";
+	options.aws.bucket = options.aws.bucket || "bucket";
 
-	var awsCred      = cred(options.awsCredentialsPath);
-	var s3BucketName = options.s3BucketName;
+	var dbSettings   = couch(options.db.url);
+	var dbName       = options.db.name;
+	var s3BucketName = options.aws.bucket;
 
 	dbSettings.getDatabaseDir(function (err, dbDir) {
 		if (err) {
@@ -25,8 +26,8 @@ module.exports = function copy(options, callback) {
 		}
 
 		var client = knox.createClient({
-			key: awsCred.aws_access_key_id,
-			secret: awsCred.aws_secret_access_key,
+			key: options.aws.accessKeyId,
+			secret: options.aws.secretAccessKey,
 			bucket: s3BucketName
 		});
 

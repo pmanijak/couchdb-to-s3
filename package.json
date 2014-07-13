@@ -15,7 +15,6 @@
   "main": "couch-to-s3.js",
   "dependencies": {
     "knox": "~0.9.0",
-    "nano": "~5.10.0",
-    "ini": "~1.2.1"
+    "nano": "~5.10.0"
   }
 }
