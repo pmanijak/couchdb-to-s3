@@ -33,11 +33,12 @@ module.exports = function copy(db, aws, callback) {
 
 		var dbFileExt = ".couch";
 		var dbFilePath = path.join(dbDir, dbName + dbFileExt);
+		var s3FilePath = "/" + dbName + dbFileExt;
 
 		console.log("Backing up database ");
-		console.log("    at " + dbFilePath + "...");
-
-		var s3FilePath = "/" + dbName + "-backup" + dbFileExt;
+		console.log("  from " + dbFilePath);
+		console.log("  to   " + s3BucketName + s3FilePath);
+		console.log("  ...");
 
 		client.putFile(dbFilePath, s3FilePath, function (err, res) {
 			if (err) {
